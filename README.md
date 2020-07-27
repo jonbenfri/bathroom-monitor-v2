@@ -14,7 +14,7 @@ When the bathroom door is opened or closed, an ESP8266 interrupt is triggered, s
 
 The nodejs server emits a signal to all connected clients informing of the new door status (open or closed).
 
-When users browse to node.js server (e.g. http://ipaddress:8080), door status is polled and displayed on a web page.
+When users browse to node.js server (e.g. http://serverip:8080), door status is polled and displayed on a web page.
 
 When door status changes, door status is sent via websockets to all connected clients. Web pages are updated.
 
