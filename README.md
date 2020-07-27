@@ -35,10 +35,9 @@ When door status changes, door status is sent via websockets to all connected cl
 
 ## Node.js server
 
+1. Access device to be a node server
 1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
-
 1. Install node.js: <https://nodejs.org/en/>
-
 1. Install bathroom monitor v2 node server:
 ```
 cd bathroom-monitor-v2
@@ -46,7 +45,14 @@ cd node-server
 npm install . # Don't forget the dot.
 ```
 1. Run: `node monitor.js`
-1. Access node server from browser: <http://localhost:8080>
+1. Note IP address or hostname:
+```
+# IP address for Raspberry Pi:
+ip a | grep "inet "
+# Hostname for Raspberry Pi:
+cat /etc/hostname
+```
+1. Access node server from browser: <http://serverip:8080> (For Raspberry Pi using hostname: <http:hostname.local:8080>.)
 
 ### Useful functions
 
