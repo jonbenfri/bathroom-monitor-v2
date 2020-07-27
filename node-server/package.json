@@ -1,0 +1,30 @@
+{
+  "name": "bathroom-monitor-v2",
+  "version": "1.0.0",
+  "description": "Node.js server to monitor a bathroom door's open or shut status",
+  "main": "monitor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonbenfri/bathroom-monitor-v2.git"
+  },
+  "keywords": [
+    "ESP8266",
+    "Arduino",
+    "Node.js",
+    "websockets",
+    "socket.io"
+  ],
+  "author": "Jonathan Friedman https://jonbenfri.dev",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/jonbenfri/bathroom-monitor-v2/issues"
+  },
+  "homepage": "https://github.com/jonbenfri/bathroom-monitor-v2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

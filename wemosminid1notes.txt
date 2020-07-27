@@ -1,0 +1,4 @@
+LOLIN(WEMOS) D1 R2 & mini
+Upload speed: 921600
+CPU freq 80MHz
+Flash size 4MB
