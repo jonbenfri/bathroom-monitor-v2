@@ -1,8 +1,8 @@
-Remixed version of Raspberry Pi Zero W version: https://github.com/jonbenfri/bathroom-monitor
-
 # Description
 
 Live monitoring a bathroom door's open or shut status.
+
+Remixed version of Raspberry Pi Zero W bathroom monitor: <https://github.com/jonbenfri/bathroom-monitor>
 
 # Overview
 
