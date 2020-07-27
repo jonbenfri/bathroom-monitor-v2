@@ -45,8 +45,8 @@ cd bathroom-monitor-v2
 cd node-server
 npm install . # Don't forget the dot.
 ```
-
 1. Run: `node monitor.js`
+1. Access node server from browser: <http://localhost:8080>
 
 ### Useful functions
 
