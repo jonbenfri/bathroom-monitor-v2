@@ -26,6 +26,8 @@ When door status changes, door status is sent via websockets to all connected cl
 
 # Installation
 
+1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
+
 ## WeMos D1 Mini
 
 1. Solder magnetic reed switch to pin D3 and GND.
@@ -37,10 +39,9 @@ When door status changes, door status is sent via websockets to all connected cl
 
 1. Access device to be a node server
 1. Install node.js: <https://nodejs.org/en/>
-1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 1. Install bathroom monitor v2 node server:
 ```
-cd bathroom-monitor-v2
+# Make sure you're in the bathroom-monitor-v2 directory
 cd node-server
 npm install . # Don't forget the dot.
 ```
