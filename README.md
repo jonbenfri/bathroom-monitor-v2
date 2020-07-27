@@ -41,7 +41,8 @@ When door status changes, door status is sent via websockets to all connected cl
 1. Install node.js: <https://nodejs.org/en/>
 1. Install bathroom monitor v2 node server:
 ```
-# Make sure you're in the bathroom-monitor-v2 directory
+# Make sure bathroom-monitor-v2 is current directory
+pwd
 cd node-server
 npm install . # Don't forget the dot.
 ```
