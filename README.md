@@ -36,8 +36,8 @@ When door status changes, door status is sent via websockets to all connected cl
 ## Node.js server
 
 1. Access device to be a node server
-1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 1. Install node.js: <https://nodejs.org/en/>
+1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 1. Install bathroom monitor v2 node server:
 ```
 cd bathroom-monitor-v2
