@@ -18,37 +18,45 @@ When users browse to node.js server (e.g. localhost:8080), door status is polled
 
 When door status changes, door status is sent via websockets to all connected clients. Web pages are updated.
 
+# Requirements
+
+1. An always-on device that can act as a server (e.g. Raspberry Pi: <https://www.raspberrypi.org/>)
+1. WeMos D1 mini: <https://docs.wemos.cc/en/latest/d1/d1_mini.html>
+1. Magnetic reed door/window switch
+
 # Installation
 
 ## WeMos D1 Mini
 
-Set up the WeMos D1 mini as follows:
-    <https://www.wemos.cc/en/latest/tutorials/d1/get_started_with_arduino_d1.html>
-
-Edit the sketch `wemos-d1-mini-sketch.ino` with WiFi SSID and PASS information.
-
-Upload the sketch `wemos-d1-mini-sketch.ino` to the D1 Mini.
+1. Solder magnetic reed switch to pin D3 and GND.
+1. Set up the WeMos D1 mini as follows: <https://www.wemos.cc/en/latest/tutorials/d1/get_started_with_arduino_d1.html>
+1. Edit the sketch `wemos-d1-mini-sketch.ino` with WiFi SSID and PASS information.
+1. Upload the sketch `wemos-d1-mini-sketch.ino` to the D1 Mini.
 
 ## Node.js server
 
-Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
+1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 
-Install node.js: <https://nodejs.org/en/>
+1. Install node.js: <https://nodejs.org/en/>
 
-Install bathroom monitor v2 node server:
+1. Install bathroom monitor v2 node server:
 ```
 cd bathroom-monitor-v2
 cd node-server
 npm install . # Don't forget the dot.
 ```
 
-Run: `node monitor.js`
+1. Run: `node monitor.js`
 
 ### Useful functions
 
 Run with pm2:
 ```
+npm install pm2
+# First time running:
 pm2 start monitor.js
+# After second time running:
+pm2 start monitor
 ```
 
 Check logs:
