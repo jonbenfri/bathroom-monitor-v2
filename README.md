@@ -31,9 +31,18 @@ Upload the sketch `wemos-d1-mini-sketch.ino` to the D1 Mini.
 
 ## Node.js server
 
-Install node.js
+Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 
-Run server: node monitor.js
+Install node.js: <https://nodejs.org/en/>
+
+Install bathroom monitor v2 node server:
+```
+cd bathroom-monitor-v2
+cd node-server
+npm install . # Don't forget the dot.
+```
+
+Run: `node monitor.js`
 
 ### Useful functions
 
