@@ -74,6 +74,7 @@ pm2 logs monitor
 
 # Licensing
 
+All original work is released under GPLv3: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 ## Images
 
@@ -97,7 +98,5 @@ Images of Audrey Hepburn are licensed under the Pixabay License:
 ## Code
 
 All libraries and library examples are governed by their respective licenses.
-
-All original work is released under GPLv3: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 Copyright 2020 Jonathan Friedman
