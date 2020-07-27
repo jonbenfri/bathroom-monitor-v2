@@ -54,7 +54,7 @@ ip a | grep "inet "
 # Hostname for Raspberry Pi:
 cat /etc/hostname
 ```
-1. Access node server from browser: <http://serverip:8080> (For Raspberry Pi using hostname: <http:hostname.local:8080>.)
+1. Access node server from browser: <http://serverip:8080> (For Raspberry Pi using hostname: <http:hostname.local:8080>)
 
 ### Useful functions
 
