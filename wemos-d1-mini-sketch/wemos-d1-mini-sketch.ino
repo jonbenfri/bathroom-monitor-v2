@@ -71,6 +71,31 @@ void socketIOEvent(socketIOmessageType_t type, uint8_t * payload, size_t length)
     }
 }
 
+void updateEventCallback() {
+    updateEvent = LOW;
+    bool sensorVal = digitalRead(interruptPin);
+    digitalWrite(ledPin, sensorVal);
+    String doorStatus = sensorVal ? "doorOpened" : "doorClosed";
+    
+    // creat JSON message for Socket.IO (event)
+    DynamicJsonDocument doc(1024);
+    JsonArray array = doc.to<JsonArray>();
+    
+    // add event name
+    // Hint: socket.on('event_name', ....
+    array.add(doorStatus);
+  
+    // JSON to String (serializion)
+    String output;
+    serializeJson(doc, output);
+  
+    // Send event        
+    socketIO.sendEVENT(output);
+  
+    // Print JSON for debugging
+    USE_SERIAL.println(output);
+}
+
 void setup() {
     // USE_SERIAL.begin(921600);
     USE_SERIAL.begin(115200);
@@ -121,27 +146,6 @@ unsigned long messageTimestamp = 0;
 void loop() {
     socketIO.loop();
 
-    if (updateEvent) {
-      updateEvent = LOW;
-      bool sensorVal = digitalRead(D3);
-      String doorStatus = sensorVal ? "doorOpened" : "doorClosed";
-      
-      // creat JSON message for Socket.IO (event)
-      DynamicJsonDocument doc(1024);
-      JsonArray array = doc.to<JsonArray>();
-      
-      // add event name
-      // Hint: socket.on('event_name', ....
-      array.add(doorStatus);
-    
-      // JSON to String (serializion)
-      String output;
-      serializeJson(doc, output);
-    
-      // Send event        
-      socketIO.sendEVENT(output);
-    
-      // Print JSON for debugging
-      USE_SERIAL.println(output);
-  }
+    if (updateEvent)
+      updateEventCallback();
 }
