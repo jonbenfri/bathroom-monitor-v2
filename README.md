@@ -26,34 +26,35 @@ When door status changes, door status is sent via websockets to all connected cl
 
 # Installation
 
-1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
-
 ## WeMos D1 Mini (ESP8266 board)
 
+1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 1. Solder magnetic reed switch to pin D3 and GND.
 1. Set up the WeMos D1 mini as follows: <https://www.wemos.cc/en/latest/tutorials/d1/get_started_with_arduino_d1.html>
-1. Edit the sketch `wemos-d1-mini-sketch.ino` with WiFi SSID and PASS information.
+1. Edit the sketch `bathroom-monitor-v2/wemos-d1-mini-sketch/wemos-d1-mini-sketch.ino` with WiFi SSID and PASS information.
 1. Upload the sketch `wemos-d1-mini-sketch.ino` to the D1 Mini.
 
 ## Node.js server
 
-1. Access device to be a node server
+1. Log in to device that will run node server
 1. Install node.js: <https://nodejs.org/en/>
 1. Install bathroom monitor v2 node server:
-```
-# Make sure bathroom-monitor-v2 is current directory
-pwd
-cd node-server
-npm install . # Don't forget the dot.
-```
+    ```
+    # Clone this repository
+    git clone https://github.com/jonbenfri/bathroom-monitor-v2
+    # Change directory
+    cd bathroom-monitor-v2/node-server
+    # Install node bathroom-monitor module
+    npm install . # Don't forget the dot
+    ```
 1. Run: `node bathroom-monitor.js`
 1. Note IP address or hostname:
-```
-# IP address for Raspberry Pi:
-ip a | grep "inet "
-# Hostname for Raspberry Pi:
-cat /etc/hostname
-```
+    ```
+    # IP address for Raspberry Pi:
+    ip a | grep "inet "
+    # Hostname for Raspberry Pi:
+    cat /etc/hostname
+    ```
 1. Access node server from browser: <http://serverip:8080> (For Raspberry Pi using hostname: <http:hostname.local:8080>)
 
 Note: If server reboots, may need to physically reset ESP8266 as websockets connection may stall.
