@@ -4,6 +4,8 @@ Live monitoring a bathroom door's open or shut status.
 
 Remixed version of Raspberry Pi Zero W bathroom monitor: <https://github.com/jonbenfri/bathroom-monitor>
 
+Vast improvement over power consumption for door monitoring device. Raspberry Pi Zero W lasted about 8 hours on 2600mAh rechargeable battery. ESP8266-based door monitoring device power consumption too low to measure using inline USB multimeter, may last months.
+
 # Overview
 
 * A node.js server (e.g. Raspberry Pi) connects clients using websockets (socket.io).
