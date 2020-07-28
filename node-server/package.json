@@ -2,7 +2,7 @@
   "name": "bathroom-monitor-v2",
   "version": "1.0.0",
   "description": "Node.js server to monitor a bathroom door's open or shut status",
-  "main": "monitor.js",
+  "main": "bathroom-monitor.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

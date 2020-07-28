@@ -28,7 +28,7 @@ When door status changes, door status is sent via websockets to all connected cl
 
 1. Clone this repository: `git clone https://github.com/jonbenfri/bathroom-monitor-v2`
 
-## WeMos D1 Mini
+## WeMos D1 Mini (ESP8266 board)
 
 1. Solder magnetic reed switch to pin D3 and GND.
 1. Set up the WeMos D1 mini as follows: <https://www.wemos.cc/en/latest/tutorials/d1/get_started_with_arduino_d1.html>
@@ -46,7 +46,7 @@ pwd
 cd node-server
 npm install . # Don't forget the dot.
 ```
-1. Run: `node monitor.js`
+1. Run: `node bathroom-monitor.js`
 1. Note IP address or hostname:
 ```
 # IP address for Raspberry Pi:
@@ -56,20 +56,29 @@ cat /etc/hostname
 ```
 1. Access node server from browser: <http://serverip:8080> (For Raspberry Pi using hostname: <http:hostname.local:8080>)
 
+Note: If server reboots, may need to physically reset ESP8266 as websockets connection may stall.
+
 ### Useful functions
 
 Run with pm2:
 ```
 npm install pm2
 # First time running:
-pm2 start monitor.js
+pm2 start bathroom-monitor.js
 # After second time running:
-pm2 start monitor
+pm2 start bathroom-monitor
 ```
 
 Check logs:
 ```
-pm2 logs monitor
+pm2 logs bathroom-monitor
+```
+
+Run on startup:
+```
+pm2 save
+sudo chmod +x /root/.pm2/module_conf.json
+sudo pm2 startup systemd -u pi
 ```
 
 # Licensing

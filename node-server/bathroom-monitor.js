@@ -14,7 +14,7 @@ var io = require('socket.io')(http);
 // app.use(express.static('images'));
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/monitor.html');
+    res.sendFile(__dirname + '/bathroom-monitor.html');
 });
 
 // Code to receive door status update
