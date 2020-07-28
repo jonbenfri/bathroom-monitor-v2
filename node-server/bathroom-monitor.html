@@ -24,21 +24,35 @@
 
 		h1#heading {
 			font-family: 'Eater', cursive;
-			min-height: 61.25px;
+			min-height: 0.5em;
+                        line-height: 0em;
 		}
 
 		h2#description {
-			font-family: 'Oleo Script Swash Caps', cursive;
+			font-family: 'Press Start 2P', cursive;
 			min-height: 19.5px;
 		}
 
 		div#door-status {
-			font-family: 'Press Start 2P', cursive;
+			font-family: 'Oleo Script Swash Caps', cursive;
+                        color: palevioletred;
+                        background-color: black;
+                        width: 20em;
+                        margin: 0px auto;
+                        border: 0.25em dotted palevioletred;
+                        border-radius: 0.7em;
 		}
+
+                p#door-status-text {
+                        display: inline-block;
+                        font-size: 2.5em;
+                        line-height: 0px;
+                }
 
 		div#audrey svg {
 			margin-top: 1em;
 		}
+
 
 		@media only screen and (max-width: 500px) {
 			.gridmenu {
@@ -67,19 +81,21 @@
               // and svg triangle color changes between red and green
               // note: jquery selector has issues with svg, use javascript
               socket.on('occupied', (door) => {
-                    $('#door-status').text("Occupied");
+                    $('#door-status-text').text("Full");
                     // occupied
                     // console.log("occupied turns red");
                     document.title = '\u2717 ' + titleText; // add x mark in page title
+                    document.getElementById('door-status-text').style.color = 'pink'; // set status text to pink
                     document.getElementById('triangleBackground').style.fill = '#800000'; // set triangleBackground to #800000
                     document.getElementById('triangleShadow').style.fill = '#550000'; // set triangleShadow to #550000
                     document.getElementById('triangleStrip').style.fill = '#800000'; // set triangleStrip to #800000
               });
               socket.on('vacant', (door) => {
-                        $('#door-status').text("Vacant");
+                        $('#door-status-text').text("Vacancy");
                         // vacant
                         // console.log("vacant turns green");
                         document.title = '\u2713 ' + titleText; // add check mark in page title
+                        document.getElementById('door-status-text').style.color = 'greenyellow'; // set status text to greenyellow
                         document.getElementById('triangleBackground').style.fill = '#008000'; // set triangleBackground to #008000
                         document.getElementById('triangleShadow').style.fill = '#005500'; // set triangleShadow to #005500
                         document.getElementById('triangleStrip').style.fill = '#008000'; // set triangleStrip to #000800
@@ -96,7 +112,7 @@
 
 <h2 id="description">Bathroom Monitor</h2>
 
-<div id="door-status">Loading...</div>
+<div id="door-status"><p id="door-status-text">Loading...</p></div>
 
 <div id="audrey">
 <!-- manually paste svg so fill can be edited with javascript -->
