@@ -6,12 +6,12 @@ Remixed version of Raspberry Pi Zero W bathroom monitor: <https://github.com/jon
 
 # Overview
 
-*A node.js server (e.g. Raspberry Pi) connects clients using websockets (socket.io).
-*A WeMos D1 mini (ESP8266 board) has a magnetic reed switch soldered to its pins.
-*When the bathroom door is opened or closed, an ESP8266 interrupt is triggered, sending the door status via websockets to the nodejs server.
-*The nodejs server emits a signal to all connected clients informing of the new door status (open or closed).
-*When users browse to node.js server (e.g. http://serverip:8080), door status is polled and displayed on a web page.
-*When door status changes, door status is sent via websockets to all connected clients. Web pages are updated.
+* A node.js server (e.g. Raspberry Pi) connects clients using websockets (socket.io).
+* A WeMos D1 mini (ESP8266 board) has a magnetic reed switch soldered to its pins.
+* When the bathroom door is opened or closed, an ESP8266 interrupt is triggered, sending the door status via websockets to the nodejs server.
+* The nodejs server emits a signal to all connected clients informing of the new door status (open or closed).
+* When users browse to node.js server (e.g. http://serverip:8080), door status is polled and displayed on a web page.
+* When door status changes, door status is sent via websockets to all connected clients. Web pages are updated.
 
 # Requirements
 
