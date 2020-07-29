@@ -19,17 +19,9 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/bathroom-monitor.html');
 });
 
-// Code to receive door status update
-app.put('/update', function(req, res) {
-        // set door status
-        // (due to physical setup, only receives on-close signal)
-        occupied = true;
-});
-
 io.on('connection', function(socket){
     console.log('a user connected');
 
-    // var doorStart = magSwitch.readSync();
     // get door status once upon loading
     socket.on('poll', () => {
         // emit door status
