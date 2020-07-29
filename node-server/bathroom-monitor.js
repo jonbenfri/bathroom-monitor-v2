@@ -3,6 +3,7 @@ process.setMaxListeners(0);
 // global variable
 // is bathroom occupied?
 var occupied = null;
+const WeMosIP = "WeMosIP";
 
 var app = require('express')();
 var http = require('http').Server(app);
@@ -26,14 +27,22 @@ io.on('connection', function(socket){
     // which triggers all connected users to receive
     // new door status
     socket.on('doorOpened', () => {
-        occupied = false;
-        io.emit('vacant', );
-        console.log(occupied ? "Bathroom is occupied." : "Bathroom is vacant.");
+        var address = socket.handshake.headers["x-real-ip"]
+        console.log("Client's address: ", address);
+        if (address === WeMosIP) {
+            occupied = false;
+            io.emit('vacant', );
+            console.log(occupied ? "Bathroom is occupied." : "Bathroom is vacant.");
+        }
     });
     socket.on('doorClosed', () => {
-        occupied = true;
-        io.emit('occupied', );
-        console.log(occupied ? "Bathroom is occupied." : "Bathroom is vacant.");
+        var address = socket.handshake.headers["x-real-ip"]
+        console.log("Client's address: ", address);
+        if (address == WeMosIP) {
+            occupied = true;
+            io.emit('occupied', );
+            console.log(occupied ? "Bathroom is occupied." : "Bathroom is vacant.");
+        }
     });
 
     socket.on('disconnect', function(){
