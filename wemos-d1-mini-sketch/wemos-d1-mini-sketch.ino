@@ -45,6 +45,7 @@ void socketIOEvent(socketIOmessageType_t type, uint8_t * payload, size_t length)
             break;
         case sIOtype_CONNECT:
             USE_SERIAL.printf("[IOc] Connected to url: %s\n", payload);
+            updateEventCallback();
             break;
         case sIOtype_EVENT:
             USE_SERIAL.printf("[IOc] get event: %s\n", payload);
@@ -143,6 +144,7 @@ void setup() {
 }
 
 unsigned long messageTimestamp = 0;
+
 void loop() {
     socketIO.loop();
 
