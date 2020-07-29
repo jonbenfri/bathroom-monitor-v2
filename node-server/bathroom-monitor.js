@@ -2,18 +2,11 @@ process.setMaxListeners(0);
 
 // global variable
 // is bathroom occupied?
-occupied = false;
-
-// console.log(value ? "Bathroom is occupied." : "Bathroom is vacant.");
-// io.emit('door change', value);
+var occupied = null;
 
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-
-var occupied = null;
-
-// app.use(express.static('images'));
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/bathroom-monitor.html');
