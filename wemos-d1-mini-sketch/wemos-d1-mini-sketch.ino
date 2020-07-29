@@ -94,6 +94,7 @@ void updateEventCallback() {
     socketIO.sendEVENT(output);
   
     // Print JSON for debugging
+    USE_SERIAL.print("[socket.io] Sent: ");
     USE_SERIAL.println(output);
 }
 
