@@ -11,6 +11,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var occupied = null;
+
 // app.use(express.static('images'));
 
 app.get('/', function(req, res) {
@@ -30,18 +32,20 @@ io.on('connection', function(socket){
     // var doorStart = magSwitch.readSync();
     // get door status once upon loading
     socket.on('poll', () => {
-        io.emit('poll'); // Poll door status
+        // emit door status
+        if (occupied !== null)
+            io.emit(occupied ? "occupied" : "vacant",);
     });
 
     // ESP8266 sends 'update' signal,
     // which triggers all connected users to receive
     // new door status
-    socket.on('doorOpened', (occupied) => {
+    socket.on('doorOpened', () => {
         occupied = false;
         io.emit('vacant', );
         console.log(occupied ? "Bathroom is occupied." : "Bathroom is vacant.");
     });
-    socket.on('doorClosed', (occupied) => {
+    socket.on('doorClosed', () => {
         occupied = true;
         io.emit('occupied', );
         console.log(occupied ? "Bathroom is occupied." : "Bathroom is vacant.");
