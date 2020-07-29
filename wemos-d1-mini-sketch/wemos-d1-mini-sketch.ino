@@ -28,7 +28,7 @@ SocketIOclient socketIO;
 const char *ssid = "SSID";
 const char *pass = "PASS";
 
-const byte interruptPin = D3;
+const byte interruptPin = D1;
 const byte ledPin = D4;
 
 volatile byte updateEvent = LOW;
