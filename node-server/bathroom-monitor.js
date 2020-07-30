@@ -5,9 +5,12 @@ process.setMaxListeners(0);
 var occupied = null;
 const WeMosIP = "WeMosIP";
 
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+
+app.use(express.static('.'));
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/bathroom-monitor.html');

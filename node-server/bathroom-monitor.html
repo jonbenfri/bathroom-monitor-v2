@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>(?) Second Chance | Bathroom Monitor</title>
+        <title>? Second Chance | 🚽 Bathroom Monitor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="https://fonts.googleapis.com/css?family=Asap+Condensed|Eater|Oleo+Script+Swash+Caps|Press+Start+2P" rel="stylesheet">
 
-        <link rel="icon" href="images/favicon.ico" type="image/png"> 
+        <!-- third-generation iPad with high-resolution Retina display: -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon.144.png">
+        <!-- iPhone with high-resolution Retina display: -->
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon.114.png">
+        <!-- first- and second-generation iPad: -->
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon.72.png">
+        <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+        <link rel="apple-touch-icon-precomposed" href="favicon.57.png">
+        <!-- basic favicon -->
+        <link rel="shortcut icon" href="favicon.32.png" type="image/x-icon">
 
         <style>
             body {
@@ -71,8 +80,8 @@
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
-            var titleText = "Second Chance | Bathroom Monitor"
-            document.title = "(?) " + titleText;
+            var titleText = "Second Chance | 🚽 Bathroom Monitor"
+            document.title = "? " + titleText;
             $(function () {
                 var socket = io();
                 // poll door status on page load
