@@ -75,8 +75,7 @@ pm2 logs bathroom-monitor
 Run on startup:
 ```
 pm2 save
-sudo chmod +x /root/.pm2/module_conf.json
-sudo pm2 startup systemd -u pi
+sudo env PATH=$PATH:/usr/local/bin pm2 startup systemd -u pi --hp /home/pi
 ```
 
 # Licensing
