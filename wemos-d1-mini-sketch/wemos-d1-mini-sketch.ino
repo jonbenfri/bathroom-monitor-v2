@@ -147,6 +147,7 @@ void setup() {
 unsigned long messageTimestamp = 0;
 
 void loop() {
+  delay(1000);
     socketIO.loop();
 
     if (updateEvent)
