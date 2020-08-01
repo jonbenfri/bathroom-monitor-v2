@@ -10,7 +10,7 @@
 #include <Arduino.h>
 
 #include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
+// #include <ESP8266WiFiMulti.h>
 
 #include <ArduinoJson.h>
 
@@ -19,11 +19,13 @@
 
 #include <Hash.h>
 
-ESP8266WiFiMulti WiFiMulti;
 SocketIOclient socketIO;
 
 // #define USE_SERIAL Serial1
 #define USE_SERIAL Serial
+
+const char *serverURL = "raspberrypi4.local";
+const char *espHostname = "bathroommonitor";
 
 const char *ssid = "SSID";
 const char *pass = "PASS";
@@ -122,23 +124,23 @@ void setup() {
           delay(1000);
       }
 
-    // disable AP
-    if(WiFi.getMode() & WIFI_AP) {
-        WiFi.softAPdisconnect(true);
-    }
+    // Set hostname
+    WiFi.mode(WIFI_STA);
+    WiFi.hostname(espHostname);
+    WiFi.begin(ssid, pass);
 
-    WiFiMulti.addAP(ssid, pass);
-
-    //WiFi.disconnect();
-    while(WiFiMulti.run() != WL_CONNECTED) {
-        delay(100);
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      USE_SERIAL.print(".");
     }
 
     String ip = WiFi.localIP().toString();
     USE_SERIAL.printf("[SETUP] WiFi Connected %s\n", ip.c_str());
+    USE_SERIAL.print("[SETUP] ESP hostname ");
+    USE_SERIAL.println(WiFi.hostname());
 
     // server address, port and URL
-    socketIO.begin("raspberrypi4.local", 80);
+    socketIO.begin(serverURL, 80);
 
     // event handler
     socketIO.onEvent(socketIOEvent);
